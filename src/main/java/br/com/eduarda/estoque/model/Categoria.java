@@ -2,6 +2,8 @@ package br.com.eduarda.estoque.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -11,6 +13,9 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nomecategoria;
+
+    @OneToMany(mappedBy = "categoria")
+    private List<Produto> produtosLista = new ArrayList<>();
 
     public int getId() {
         return id;
