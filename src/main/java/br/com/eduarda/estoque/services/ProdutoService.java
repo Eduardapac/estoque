@@ -1,7 +1,7 @@
-package br.com.eduarda.estoque.model.services;
+package br.com.eduarda.estoque.services;
 
 import br.com.eduarda.estoque.model.Produto;
-import br.com.eduarda.estoque.model.repositories.ProdutoRepository;
+import br.com.eduarda.estoque.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

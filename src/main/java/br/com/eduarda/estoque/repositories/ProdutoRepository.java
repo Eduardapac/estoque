@@ -1,4 +1,4 @@
-package br.com.eduarda.estoque.model.repositories;
+package br.com.eduarda.estoque.repositories;
 
 import br.com.eduarda.estoque.model.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
