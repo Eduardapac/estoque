@@ -12,7 +12,15 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nomecategoria;
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     @OneToMany(mappedBy = "categoria")
     private List<Produto> produtosLista = new ArrayList<>();
@@ -25,13 +33,6 @@ public class Categoria {
         this.id = id;
     }
 
-    public String getNomecategoria() {
-        return nomecategoria;
-    }
-
-    public void setNomecategoria(String nomecategoria) {
-        this.nomecategoria = nomecategoria;
-    }
 
     @Override
     public boolean equals(Object o) {
