@@ -17,7 +17,6 @@ public class ProdutoController {
 
     @Autowired
     private ProdutoService produtoService;
-
     @PostMapping()
     public ResponseEntity<Produto> inserir(@RequestBody Produto produto){
         Produto produtoSalvar = produtoService.salvar(produto);

@@ -23,7 +23,7 @@ public class Categoria {
     }
 
     @OneToMany(mappedBy = "categoria")
-    private List<Produto> produtosLista = new ArrayList<>();
+    private List<Produto> produtosList = new ArrayList<>();
 
     public int getId() {
         return id;
