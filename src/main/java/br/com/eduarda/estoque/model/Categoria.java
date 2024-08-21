@@ -1,5 +1,6 @@
 package br.com.eduarda.estoque.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class Categoria {
         this.nome = nome;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "categoria")
     private List<Produto> produtosList = new ArrayList<>();
 
