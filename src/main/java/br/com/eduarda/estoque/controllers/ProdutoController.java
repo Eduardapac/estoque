@@ -1,6 +1,5 @@
 package br.com.eduarda.estoque.controllers;
 
-import br.com.eduarda.estoque.model.Categoria;
 import br.com.eduarda.estoque.model.Produto;
 import br.com.eduarda.estoque.repositories.ProdutoRepository;
 import br.com.eduarda.estoque.services.ProdutoService;
@@ -11,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/produtos")
@@ -26,6 +26,12 @@ public class ProdutoController {
     @GetMapping()
     public List<Produto> listarTodosProdutos(){
         return produtoRepository.findAll(Sort.by("nomeproduto").ascending());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Produto> buscarPeloCodigo(@PathVariable int id){
+        Optional<Produto> produto = produtoRepository.findById(id);
+        return produto.isPresent() ? ResponseEntity.ok(produto.get()): ResponseEntity.notFound() .build();
     }
     @PostMapping()
     public ResponseEntity<Produto> inserir(@RequestBody Produto produto){
