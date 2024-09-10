@@ -38,4 +38,9 @@ public class ProdutoController {
         Produto produtoSalvar = produtoService.salvar(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoSalvar);
     }
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void remover(@PathVariable int id){
+        produtoRepository.deleteById(id);
+    }
 }
