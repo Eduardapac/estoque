@@ -1,9 +1,13 @@
 package br.com.eduarda.estoque.controllers;
 
+import br.com.eduarda.estoque.dto.ProdutoDto;
 import br.com.eduarda.estoque.model.Produto;
 import br.com.eduarda.estoque.repositories.ProdutoRepository;
+import br.com.eduarda.estoque.repositories.filter.ProdutoFilter;
 import br.com.eduarda.estoque.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +27,11 @@ public class ProdutoController {
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    @GetMapping()
+    public Page<ProdutoDto> pesquisar(ProdutoFilter produtoFilter, Pageable pageable){
+        return produtoRepository.filtrar(produtoFilter, pageable);
+    }
+
+    @GetMapping("/todos")
     public List<Produto> listarTodosProdutos(){
         return produtoRepository.findAll(Sort.by("nomeproduto").ascending());
     }
