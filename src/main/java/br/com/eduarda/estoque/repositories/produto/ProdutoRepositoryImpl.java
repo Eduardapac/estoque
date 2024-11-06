@@ -1,7 +1,6 @@
 package br.com.eduarda.estoque.repositories.produto;
 
 import br.com.eduarda.estoque.dto.ProdutoDto;
-import br.com.eduarda.estoque.model.Categoria;
 import br.com.eduarda.estoque.model.Produto;
 import br.com.eduarda.estoque.repositories.filter.ProdutoFilter;
 import jakarta.persistence.EntityManager;
